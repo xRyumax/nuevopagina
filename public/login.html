@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Moderno</title>
+  <title>Transporte Seguro - Login</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
@@ -67,13 +67,14 @@
       width: 200%;
       background: linear-gradient(
         to right,
-        hsl(0, 0%, 85%),        /* Gris muy claro */
-        hsla(30, 3%, 34%, 1)    /* Davys Grey */
+        #1a3a8f,  /* Azul marino */
+        #4a6bff   /* Azul brillante */
       );
       color: #fff;
       transform: translateX(0);
       transition: transform 0.6s ease-in-out;
     }
+
     .overlay-panel {
       position: absolute;
       display: flex;
@@ -108,14 +109,18 @@
     .login-container h1 {
       font-weight: 600;
       margin-bottom: 20px;
-      color: #333; /* Oscuro para contraste en blanco */
+      color: #1a3a8f;
     }
 
-    /* Título para el overlay (fondo gris) */
     .overlay-panel h1 {
       font-weight: 600;
       margin-bottom: 20px;
-      color: #f8f9fa; /* Blanco roto para contraste en gris */
+      color: #fff;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
     }
 
     .input-field {
@@ -154,7 +159,7 @@
 
     .btn {
       width: 150px;
-      background-color: hsla(30, 3%, 34%, 1); /* Davys Grey */
+      background-color: #1a3a8f;
       border: none;
       outline: none;
       height: 49px;
@@ -168,8 +173,8 @@
     }
 
     .btn:hover {
-      background-color: #495057; /* Gris más oscuro */
-      box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.3); /* Efecto de foco */
+      background-color: #4a6bff;
+      box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.3);
     }
 
     .btn.transparent {
@@ -206,11 +211,9 @@
     }
 
     .social-container a:hover {
-      border-color: #4481eb;
-      color: #4481eb;
+      border-color: #1a3a8f;
+      color: #1a3a8f;
     }
-
-    /* toggle */
 
     .toggle-password {
       cursor: pointer;
@@ -228,8 +231,6 @@
     .input-field {
       position: relative; 
     }
-
-    /* video */
 
     .video-background {
       position: fixed;
@@ -251,7 +252,6 @@
       object-fit: cover;
     }
 
-    /* Ajusta el overlay existente para que funcione con video */
     .container::before {
       content: "";
       position: absolute;
@@ -261,7 +261,25 @@
       z-index: 0;
     }
 
-    /* Animaciones y responsive */
+    .transport-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .forgot-password {
+      margin-top: 10px;
+      color: #1a3a8f;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .forgot-password:hover {
+      color: #4a6bff;
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       .login-container {
         width: 100%;
@@ -271,11 +289,12 @@
         display: none;
       }
     }
-    /* Animaciones y alerta*/
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
       to { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
+    
     @keyframes fadeOut {
       from { opacity: 1; transform: translateX(-50%) translateY(0); }
       to { opacity: 0; transform: translateX(-50%) translateY(-20px); }
@@ -286,13 +305,12 @@
   <div class="container">
     <div class="form-container login-container">
       <form id="formLogin">
+        <img src="https://via.placeholder.com/120x60?text=Transporte+Seguro" alt="Logo Transporte Seguro" class="logo">
         <h1>Iniciar Sesión</h1>
-      
-        
         
         <div class="input-field">
-          <i class="fas fa-envelope"></i>
-          <input type="email" id="correo" placeholder="Correo" required>
+          <i class="fas fa-user"></i>
+          <input type="email" id="correo" placeholder="Correo electrónico" required>
         </div>
         
         <div class="input-field">
@@ -301,19 +319,34 @@
           <i class="fas fa-eye toggle-password" id="togglePassword"></i>
         </div>
         
+        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
         
         <button type="submit" class="btn">Ingresar</button>
+        
+        <div class="social-container">
+          <p>O inicia sesión con</p>
+          <div>
+            <a href="#"><i class="fab fa-google"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-apple"></i></a>
+          </div>
+        </div>
       </form>
     </div>
     
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-right">
-          <h1>¡Bienvenido de nuevo!</h1>
-          <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal</p>
-          <button class="btn transparent" id="signIn">Registrate</button>
+          <div class="transport-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h1>Transporte Seguro</h1>
+          <p>Tu seguridad es nuestra prioridad. Inicia sesión para acceder a nuestro sistema de transporte protegido y confiable.</p>
+          <button class="btn transparent" id="signIn">Registrarse</button>
           <p style="margin-top: 15px;">
-            <a href="index.html" style="color: white; cursor: pointer; text-decoration: none;">Volver al inicio</a>
+            <a href="index.html" style="color: white; cursor: pointer; text-decoration: none;">
+              <i class="fas fa-arrow-left"></i> Volver al inicio
+            </a>
           </p>
         </div>
       </div>
@@ -322,8 +355,7 @@
 
   <div class="video-background">
     <video autoplay muted loop id="bgVideo">
-      <source src="./assets/images/edificios.mp4" type="video/mp4">
-      
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-driving-on-the-highway-at-night-20047-large.mp4" type="video/mp4">
       Tu navegador no soporta videos HTML5.
     </video>
   </div>
@@ -380,11 +412,11 @@
           localStorage.setItem('correo', data.correo);
           localStorage.setItem('id', data.id);
   
-          // Redirigir después de 1 segundo (para que se vea el mensaje)
+          // Redirigir después de 1 segundo
           setTimeout(() => {
             if (data.rol === 'admin') window.location.href = 'dashboard_admin.html';
-            else if (data.rol === 'agente') window.location.href = 'dashboard_agente.html';
-            else if (data.rol === 'cliente') window.location.href = 'dashboard_cliente.html';
+            else if (data.rol === 'conductor') window.location.href = 'dashboard_conductor.html';
+            else if (data.rol === 'pasajero') window.location.href = 'dashboard_pasajero.html';
           }, 1000);
         } else {
           showMessage('❌ ' + data.message, false);
@@ -397,9 +429,7 @@
         submitBtn.innerHTML = 'Iniciar sesión';
       }
     });
-  </script>
 
-  <script>
     // Toggle para mostrar/ocultar contraseña
     document.getElementById('togglePassword').addEventListener('click', function() {
       const passwordInput = document.getElementById('password');
@@ -414,23 +444,9 @@
       }
     });
 
-    // [Tu código existente de manejo del formulario...]
-    document.getElementById('formLogin').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      
+    document.getElementById('signIn').addEventListener('click', function() {
+      window.location.href = "register.html";
     });
   </script>
-  <script>
-    document.getElementById('volverMenu').addEventListener('click', function() {
-      window.location.href = 'index.html';
-    });
-  </script>
-
-<script>
-  document.getElementById('signIn').addEventListener('click', function() {
-    // Redirigir a register.html
-    window.location.href = "register.html";
-  });
-</script>
 </body>
 </html>

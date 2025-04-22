@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Iniciar servidor
 const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Servidor disponible en http://localhost:${PORT} o http://<tu-ip-local>:${PORT}`);
 });
+
